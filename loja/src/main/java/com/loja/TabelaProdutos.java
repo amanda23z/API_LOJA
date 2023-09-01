@@ -37,5 +37,27 @@ public class TabelaProdutos {
         }
         return produtoProcurado;
     }
+    public Produto cadastrarNovoProduto(Produto novoProduto) {
+        // 5-1 = 4
+        int ultimoIndex = this.produtos.size() -1;
+
+        // Produto caderno = new Produto(5, "caderno aspiral", "caderno aspiral com 96 folhas", 15.99);
+        Produto ultimoProduto = this.produtos.get(ultimoIndex);
+
+        // 5+1 = 6
+        int proximoId = ultimoProduto.getId() +1;
+
+        novoProduto.setId(proximoId);
+        this.produtos.add(novoProduto);
+        return novoProduto;
+    }
+    public void atualizarProdutos(int produtoId, Produto produtoAtualizar) {
+        Produto produtoProcurado = this.buscarProdutoPeloId(produtoId);
+        if (produtoProcurado != null) {
+            produtoProcurado.setNome(produtoAtualizar.getNome());
+            produtoProcurado.setDescricao(produtoAtualizar.getDescricao());
+            produtoProcurado.setValorUnitario(produtoAtualizar.getValorUnitario());
+        }
+    }
 
 }
