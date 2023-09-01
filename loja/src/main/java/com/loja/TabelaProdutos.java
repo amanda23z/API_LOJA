@@ -27,4 +27,15 @@ public class TabelaProdutos {
         return this.getProdutos();
 
     }
+    public Produto buscarProdutoPeloId(int produtoId) {
+        Produto produtoProcurado = null;
+        for (Produto p: this.produtos) {
+            if (p.getId() == produtoId) {
+                produtoProcurado = p;
+                break;
+            }
+        }
+        return produtoProcurado;
+    }
+
 }
